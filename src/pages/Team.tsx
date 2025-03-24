@@ -7,10 +7,9 @@ import { motion } from "framer-motion";
 export default function Team() {
   const teamMembers = [
     {
-      name: "Dr. Alexandra Chen",
-      role: "Founder & CEO",
-      bio: "Former cybersecurity expert with a Ph.D. in Computer Science. Alex founded JobDetective after witnessing the impact of employment scams firsthand.",
-      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      name: "Maddu Nagasai",
+      role: "FULL STACK DEVELOPER",
+      imageUrl: "https://res.cloudinary.com/dm7jsi2cz/image/upload/v1742211458/WhatsApp_Image_2025-03-17_at_17.07.04_4e336d19_elquwe.jpg",
     },
     {
       name: "Michael Rodriguez",
@@ -79,7 +78,6 @@ export default function Team() {
                 key={member.name}
                 name={member.name}
                 role={member.role}
-                bio={member.bio}
                 imageUrl={member.imageUrl}
                 delay={index * 0.1}
               />
