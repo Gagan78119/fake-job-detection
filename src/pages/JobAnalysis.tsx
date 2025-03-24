@@ -1,10 +1,10 @@
-
 import { useState } from 'react';
 import { AlertTriangle, CheckCircle, SendHorizonal } from "lucide-react";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
 import Lottie from "lottie-react";
 import sampleAnimation from "./Animation - 1742720713095.json";
 
@@ -28,35 +28,18 @@ export default function JobAnalysis() {
     setResult(null);
 
     try {
-      // Simulate an analysis with a timeout
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Send the job description to Flask API
+      const response = await axios.post("http://127.0.0.1:5000/predict", {
+        description: jobDescription,
+      });
 
-      // For demonstration, we'll use a simple heuristic to determine if a job is fake
-      const redFlags = [
-        'immediate start',
-        'work from home',
-        'no experience required',
-        'high salary',
-        'urgent hiring',
-        'perfect for students',
-        'unlimited earning potential',
-        'no interview',
-        'money back guarantee',
-        'easy money'
-      ];
+      // Parse the API response
+      const data = response.data;
+      setResult({
+        isFake: data.isFake,
+        reasons: data.reasons || [],
+      });
 
-      const lowerCaseDescription = jobDescription.toLowerCase();
-      const foundRedFlags = redFlags.filter(flag => 
-        lowerCaseDescription.includes(flag.toLowerCase())
-      );
-      
-      const isFake = foundRedFlags.length >= 2;
-      
-      const reasons = isFake 
-        ? foundRedFlags.map(flag => `Contains suspicious phrase: "${flag}"`) 
-        : ['No common red flags detected', 'Job description appears to be legitimate'];
-      
-      setResult({ isFake, reasons });
     } catch (error) {
       console.error('Error analyzing job:', error);
       toast({
@@ -80,12 +63,11 @@ export default function JobAnalysis() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white  flex items-center justify-center gap-4"
+              className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white flex items-center justify-center gap-4"
             >
               Job Scam Detector
               <Lottie animationData={sampleAnimation} loop={true} className="w-16 md:w-24" />
             </motion.h1>
-            
           </div>
         </div>
       </div>
@@ -183,53 +165,6 @@ export default function JobAnalysis() {
           )}
         </div>
       </section>
-      
-      <section className="py-16 px-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-        <div className="container mx-auto max-w-4xl">
-          <div className="glass-card rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-center">Common Job Scam Red Flags</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="glass-card rounded-xl p-5 bg-white/60 dark:bg-gray-800/60">
-                <h3 className="font-semibold mb-2 flex items-center">
-                  <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
-                  Too Good To Be True
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Unusually high salary, minimal qualifications, or vague job descriptions are common in scam postings.
-                </p>
-              </div>
-              <div className="glass-card rounded-xl p-5 bg-white/60 dark:bg-gray-800/60">
-                <h3 className="font-semibold mb-2 flex items-center">
-                  <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
-                  Unprofessional Communication
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Poor grammar, spelling errors, and generic greetings in job descriptions often indicate scams.
-                </p>
-              </div>
-              <div className="glass-card rounded-xl p-5 bg-white/60 dark:bg-gray-800/60">
-                <h3 className="font-semibold mb-2 flex items-center">
-                  <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
-                  Requesting Personal Information
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Legitimate employers won't ask for sensitive information like bank details or ID numbers upfront.
-                </p>
-              </div>
-              <div className="glass-card rounded-xl p-5 bg-white/60 dark:bg-gray-800/60">
-                <h3 className="font-semibold mb-2 flex items-center">
-                  <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
-                  No Interview Process
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Job offers without proper interviews or background checks are suspicious and likely fraudulent.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
     </PageTransition>
   );
 }
