@@ -19,7 +19,7 @@ export default function TeamCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
-      className="glass-card card-hover rounded-2xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-lg"
+      className="glass-card card-hover rounded-2xl justifycontent-center overflow-hidden shadow-lg bg-white/10 backdrop-blur-lg"
     >
       {/* Image Section */}
       <div className="relative group">

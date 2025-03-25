@@ -12,35 +12,34 @@ export default function Team() {
       imageUrl: "https://res.cloudinary.com/dm7jsi2cz/image/upload/v1742211458/WhatsApp_Image_2025-03-17_at_17.07.04_4e336d19_elquwe.jpg",
     },
     {
-      name: "Michael Rodriguez",
-      role: "CTO",
-      bio: "AI specialist with 15+ years experience developing machine learning systems. Michael leads our technology development and research initiatives.",
-      imageUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      name: "Gagan Dileep",
+      role: "Frontend and Resoucer",
+      imageUrl: "https://res.cloudinary.com/dgpiiljnj/image/upload/v1742883051/gagan_wricn9.jpg",
     },
-    {
-      name: "Sarah Johnson",
-      role: "Head of User Protection",
-      bio: "Former HR director with expertise in recruitment fraud prevention. Sarah ensures our technology effectively protects real job seekers.",
-      imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "David Kim",
-      role: "Lead Data Scientist",
-      bio: "Specializes in natural language processing and pattern recognition. David's algorithms power our core scam detection technology.",
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Lisa Thompson",
-      role: "UX Design Lead",
-      bio: "Award-winning designer focused on creating intuitive user experiences. Lisa ensures our protection tools are accessible to everyone.",
-      imageUrl: "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "James Wilson",
-      role: "Security Analyst",
-      bio: "Former FBI cybercrime specialist with expertise in fraud detection. James leads our efforts to stay ahead of emerging scam techniques.",
-      imageUrl: "https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
+    // {
+    //   name: "Sarah Johnson",
+    //   role: "Head of User Protection",
+    //   bio: "Former HR director with expertise in recruitment fraud prevention. Sarah ensures our technology effectively protects real job seekers.",
+    //   imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // },
+    // {
+    //   name: "David Kim",
+    //   role: "Lead Data Scientist",
+    //   bio: "Specializes in natural language processing and pattern recognition. David's algorithms power our core scam detection technology.",
+    //   imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // },
+    // {
+    //   name: "Lisa Thompson",
+    //   role: "UX Design Lead",
+    //   bio: "Award-winning designer focused on creating intuitive user experiences. Lisa ensures our protection tools are accessible to everyone.",
+    //   imageUrl: "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // },
+    // {
+    //   name: "James Wilson",
+    //   role: "Security Analyst",
+    //   bio: "Former FBI cybercrime specialist with expertise in fraud detection. James leads our efforts to stay ahead of emerging scam techniques.",
+    //   imageUrl: "https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // },
   ];
 
   return (
