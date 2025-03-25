@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +9,7 @@ import About from "./pages/About";
 import Team from "./pages/Team";
 import JobAnalysis from "./pages/JobAnalysis";
 import NotFound from "./pages/NotFound";
+import Chatbot from "@/components/chatbot";  // ✅ Chatbot now global
 
 const queryClient = new QueryClient();
 
@@ -28,6 +28,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
+        <Chatbot />  {/* ✅ Moved here to appear on all pages */}
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

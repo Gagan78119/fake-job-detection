@@ -1,7 +1,5 @@
-
 import { AlertTriangle, BarChart, Shield, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import FeatureCard from "@/components/FeatureCard";
 import Hero from "@/components/Hero";
@@ -58,14 +56,14 @@ export default function Index() {
             />
             <FeatureCard 
               title="Language Pattern Analysis"
-              description="Our system identifies linguistics red flags common in scam job listings, like poor grammar or excessive promises."
+              description="Our system identifies linguistic red flags common in scam job listings, like poor grammar or excessive promises."
               icon={Shield}
               delay={0.6}
             />
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </PageTransition>
   );
