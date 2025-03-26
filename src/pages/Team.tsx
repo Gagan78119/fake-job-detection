@@ -13,15 +13,14 @@ export default function Team() {
     },
     {
       name: "Gagan Dileep",
-      role: "Frontend and Resoucer",
+      role: "Frontend & Resoucer",
       imageUrl: "https://res.cloudinary.com/dgpiiljnj/image/upload/v1742883051/gagan_wricn9.jpg",
     },
-    // {
-    //   name: "Sarah Johnson",
-    //   role: "Head of User Protection",
-    //   bio: "Former HR director with expertise in recruitment fraud prevention. Sarah ensures our technology effectively protects real job seekers.",
-    //   imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    // },
+    {
+      name: "Tulasi Pavani",
+      role: "Team Lead",
+      imageUrl: "https://res.cloudinary.com/dgpiiljnj/image/upload/v1743011148/WhatsApp_Image_2025-03-26_at_23.09.09_21928c4c_fhlrxw.jpg",
+    },
     // {
     //   name: "David Kim",
     //   role: "Lead Data Scientist",
