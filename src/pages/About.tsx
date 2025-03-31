@@ -137,7 +137,7 @@ export default function About() {
               <SiGooglecloud className="text-yellow-500 text-5xl mb-4" />
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Cloud & Deployment</h3>
               <p className="text-gray-600 dark:text-gray-300 mt-2">
-                Our system is deployed using Google Cloud, AWS, and Vercel, ensuring high availability and scalability.
+                Our system is deployed using "Netlify and Vercel" ensuring high availability and scalability.
               </p>
             </div>
 

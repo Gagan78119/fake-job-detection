@@ -21,12 +21,11 @@ export default function Team() {
       role: "Team Lead",
       imageUrl: "https://res.cloudinary.com/dgpiiljnj/image/upload/v1743011148/WhatsApp_Image_2025-03-26_at_23.09.09_21928c4c_fhlrxw.jpg",
     },
-    // {
-    //   name: "David Kim",
-    //   role: "Lead Data Scientist",
-    //   bio: "Specializes in natural language processing and pattern recognition. David's algorithms power our core scam detection technology.",
-    //   imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    // },
+    {
+      name: "Areti Vyshnavi",
+      role: "Data Analyst",
+      imageUrl: "https://res.cloudinary.com/dgpiiljnj/image/upload/v1743403485/IMG-20250327-WA0002_rmsfhe.jpg",
+    },
     // {
     //   name: "Lisa Thompson",
     //   role: "UX Design Lead",

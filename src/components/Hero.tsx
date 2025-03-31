@@ -18,24 +18,11 @@ export default function Hero() {
         transition={{ duration: 1.5 }}
         className="absolute inset-0 z-0 pointer-events-none"
       >
-        {/* Cybersecurity Grid */}
-        <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 gap-1 opacity-10">
-          {[...Array(144)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="w-1 h-1 bg-blue-400 dark:bg-green-400 rounded-full transition-colors duration-300"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ duration: 2, repeat: Infinity, delay: Math.random() * 2 }}
-            />
-          ))}
-        </div>
-
         {/* Floating AI Data Particles */}
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-blue-500 dark:bg-green-500 opacity-70 w-1.5 h-1.5 rounded-full transition-colors duration-300"
+            className="absolute bg-green-500 dark:bg-blue-500 opacity-70 w-10 h-1.5 rounded-full transition-colors duration-300"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,

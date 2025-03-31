@@ -25,6 +25,8 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location]);
 
+  
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -39,6 +41,8 @@ export default function Navbar() {
             Job or Joke
           </span>
         </NavLink>
+
+        
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
@@ -122,15 +126,7 @@ export default function Navbar() {
               isActive ? "nav-link nav-link-active" : "nav-link"
             }
           >
-            Job Analysis
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? "nav-link nav-link-active" : "nav-link"
-            }
-          >
-            About
+            Detector
           </NavLink>
           <NavLink
             to="/team"
@@ -140,6 +136,15 @@ export default function Navbar() {
           >
             Team
           </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link-active" : "nav-link"
+            }
+          >
+            About
+          </NavLink>
+          
         </div>
       </div>
     </nav>
