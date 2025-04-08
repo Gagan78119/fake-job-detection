@@ -2,7 +2,7 @@ import { ArrowRight, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import animationData from "./Animation - 1742719199461.json"; // Ensure path is correct
+import introanime from "./Animation - 1742719199461.json"; // Ensure path is correct
 
 export default function Hero() {
   return (
@@ -19,10 +19,10 @@ export default function Hero() {
         className="absolute inset-0 z-0 pointer-events-none"
       >
         {/* Floating AI Data Particles */}
-        {[...Array(20)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-green-500 dark:bg-blue-500 opacity-70 w-10 h-1.5 rounded-full transition-colors duration-300"
+            className="absolute bg-blue-500 dark:bg-blue-500 opacity-70 w-1 h-24 rounded-full transition-colors duration-300"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center items-center w-full max-w-xs md:max-w-sm"
           >
-            <Lottie animationData={animationData} loop autoplay className="w-full h-auto" />
+            <Lottie animationData={introanime} loop autoplay className="w-full h-auto" />
           </motion.div>
 
           {/* Left Section */}
@@ -61,7 +61,7 @@ export default function Hero() {
               className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-800 mb-6 transition-colors duration-300"
             >
               <ShieldCheck className="w-4 h-4 mr-2 text-blue-700 dark:text-primary" />
-              <span className="text-sm font-medium text-blue-700 dark:text-primary">AI-Powered Job Scam Detection</span>
+              <span className="text-sm font-medium text-green-700 dark:text-green">AI-Powered Job Scam Detection</span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white leading-tight transition-colors duration-300">

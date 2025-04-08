@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { X, Send, ChevronDown, ChevronUp, MessageCircle } from "lucide-react";
 import Lottie from "lottie-react";
-import foxWaveAnimation from "./Animation - 1742926868203.json"; // Ensure correct path for the animation
+import foxey from "./Animation - 1742926868203.json"; // Ensure correct path for the animation
 
 // Predefined queries & responses
 const predefinedQueries = [
@@ -75,7 +75,7 @@ const Chatbot = () => {
             isDarkMode ? "bg-blue-500 text-white" : "bg-blue-500 text-white"
           }`}
         >
-          <Lottie animationData={foxWaveAnimation} style={{ width: 50, height: 50 }} loop={true} />
+          <Lottie animationData={foxey} style={{ width: 50, height: 50 }} loop={true} />
         </button>
       )}
 

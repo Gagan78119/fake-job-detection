@@ -1,7 +1,7 @@
 
 import {Heart }from "lucide-react";
 import Lottie from "lottie-react"; // Correct Lottie import
-import footerAnimation from "./Animation - 1742345466109.json"; // Replace with your desired animation file
+import goodbye from "./Animation - 1742345466109.json"; // Replace with your desired animation file
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
       
        {/* Right Section - Animated Anime Character */}
        <div className="flex justify-center items-center animate-fadeInRight" style={{ animationDelay: "0.4s" }}>
-            <Lottie animationData={footerAnimation} loop={true} className="w-half max-w-xs md:max-w-sm" />
+            <Lottie animationData={goodbye} loop={true} className="w-half max-w-xs md:max-w-sm" />
             <p className="text-gray-500 dark:text-gray-400 text-lg flex items-center justify-center">
             Made with <Heart className="h-10 w-10 text-blue-500 mx-3" /> for job seekers around ....
           </p>

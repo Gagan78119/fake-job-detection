@@ -2,7 +2,7 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
-import sampleAnimation from "./Animation - 1742749560990.json"; // Replace with actual Lottie JSON
+import teamAnimation from "./Animation - 1742749560990.json"; // Replace with actual Lottie JSON
 
 import { BarChart3, Lock, Shield, Zap } from "lucide-react";
 import {
@@ -75,7 +75,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Lottie animationData={sampleAnimation} loop={true} className="w-full max-w-md mx-auto" />
+              <Lottie animationData={teamAnimation} loop={true} className="w-full max-w-md mx-auto" />
             </motion.div>
 
           </div>

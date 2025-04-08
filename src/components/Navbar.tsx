@@ -70,14 +70,14 @@ export default function Navbar() {
           >
             About
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/team"
             className={({ isActive }) =>
               isActive ? "nav-link nav-link-active" : "nav-link"
             }
           >
             Team
-          </NavLink>
+          </NavLink> */}
           {/* Theme Toggle with Rotation Effect on Hover */}
           <motion.div
               whileHover={{ rotate: 3600 }} 
@@ -129,14 +129,6 @@ export default function Navbar() {
             Detector
           </NavLink>
           <NavLink
-            to="/team"
-            className={({ isActive }) =>
-              isActive ? "nav-link nav-link-active" : "nav-link"
-            }
-          >
-            Team
-          </NavLink>
-          <NavLink
             to="/about"
             className={({ isActive }) =>
               isActive ? "nav-link nav-link-active" : "nav-link"
@@ -144,7 +136,14 @@ export default function Navbar() {
           >
             About
           </NavLink>
-          
+          {/* <NavLink
+            to="/team"
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link-active" : "nav-link"
+            }
+          >
+            Team
+          </NavLink> */}
         </div>
       </div>
     </nav>
