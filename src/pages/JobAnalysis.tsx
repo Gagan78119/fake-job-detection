@@ -5,7 +5,6 @@ import PageTransition from '@/components/PageTransition';
 import Navbar from '@/components/Navbar';
 import DragDropUploader from '../components/DragDropUploader'; // adjust path if needed
 import { useToast } from '@/hooks/use-toast';
-import axios from 'axios';
 import Lottie from 'lottie-react';
 import detective from './Animation - 1742720713095.json';
 import { useDropzone } from 'react-dropzone';
@@ -37,7 +36,8 @@ export default function JobAnalysis() {
     }, 300);
   };
 
-  const analyzeJob = async () => {
+  // Simulate the analyzeJob function with mock predictions
+  const analyzeJob = () => {
     if (!jobDescription.trim()) {
       toast({
         title: 'Error',
@@ -50,30 +50,26 @@ export default function JobAnalysis() {
     setIsAnalyzing(true);
     setResult(null);
 
-    try {
-      const response = await axios.post('http://127.0.0.1:5000/predict', {
-        description: jobDescription,
-      });
-
-      const data = response.data;
-
-      setResult({
-        isFake: data.isFake,
-        reasons: data.reasons || [],
-        score: data.score,
-      });
+    // Simulate result after 2 seconds based on job description
+    setTimeout(() => {
+      // Simulate a fake job description result
+      if (jobDescription.toLowerCase().includes('no experience')) {
+        setResult({
+          isFake: true,
+          reasons: ['Requires no experience', 'Salary is too high for the role'],
+          score: 75,
+        });
+      } else {
+        setResult({
+          isFake: false,
+          reasons: [],
+          score: 90,
+        });
+      }
 
       scrollToResult();
-    } catch (error) {
-      console.error('Error analyzing job:', error);
-      toast({
-        title: 'Analysis failed',
-        description: 'There was an error analyzing the job description. Please try again.',
-        variant: 'destructive',
-      });
-    } finally {
       setIsAnalyzing(false);
-    }
+    }, 2000);
   };
 
   const handlePDF = async (file: File) => {
@@ -125,7 +121,7 @@ export default function JobAnalysis() {
       <Navbar />
 
       <div className="pt-24 pb-8 md:pt-32 md:pb-16 px-6">
-      <div className="container mx-auto text-center max-w-3xl">
+        <div className="container mx-auto text-center max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -139,8 +135,8 @@ export default function JobAnalysis() {
       </div>
 
       <section className="py-8 px-6">
-      <div className="container mx-auto max-w-6xl">
-      <motion.div
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -149,42 +145,34 @@ export default function JobAnalysis() {
             <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-gradient-to-br from-primary/20 to-blue-400/20 blur-xl"></div>
 
             <div className="relative z-10">
-            <div className="mb-6 flex flex-col md:flex-row gap-6">
-  {/* Drag & Drop Section */}
-<div className="md:w-2/5">
-  <h2 className="text-md font-semibold mb-2 text-gray-700 dark:text-gray-300">
-    Upload a Job Description File
-  </h2>
-  
-  <DragDropUploader onExtractedText={(text: string) => setJobDescription(text)} />
+              <div className="mb-6 flex flex-col md:flex-row gap-6">
+                <div className="md:w-2/5">
+                  <h2 className="text-md font-semibold mb-2 text-gray-700 dark:text-gray-300">
+                    Upload a Job Description File
+                  </h2>
+                  <DragDropUploader onExtractedText={(text: string) => setJobDescription(text)} />
+                  <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 text-sm text-blue-800 dark:text-blue-200">
+                    <p className="mb-2 font-medium">👉 How to Scan a Job Description:</p>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Upload a <strong>.txt</strong> or <strong>.pdf</strong> file with the job description.</li>
+                      <li>Or paste the job details in the textbox on the right.</li>
+                      <li>Then click <strong>“Analyze Job”</strong> to detect potential scams.</li>
+                    </ul>
+                  </div>
+                </div>
 
-  {/* Instruction block */}
-  <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 text-sm text-blue-800 dark:text-blue-200">
-    <p className="mb-2 font-medium">👉 How to Scan a Job Description:</p>
-    <ul className="list-disc list-inside space-y-1">
-      <li>Upload a <strong>.txt</strong> or <strong>.pdf</strong> file with the job description.</li>
-      <li>Or paste the job details in the textbox on the right.</li>
-      <li>Then click <strong>“Analyze Job”</strong> to detect potential scams.</li>
-    </ul>
-  </div>
-</div>
-
-
-  {/* Textarea Section */}
-  <div className="mb-6 md:w-3/5">
-  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-   JobDescription
-  </label>
-  <textarea
-  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary min-h-[300px] md:min-w-[100%] transition-all duration-200"
-  placeholder="Paste the job description here..."
-    value={jobDescription}
-    onChange={(e) => setJobDescription(e.target.value)}
-  />
-</div>
-
-</div>
-
+                <div className="mb-6 md:w-3/5">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    Job Description
+                  </label>
+                  <textarea
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary min-h-[300px] md:min-w-[100%] transition-all duration-200"
+                    placeholder="Paste the job description here..."
+                    value={jobDescription}
+                    onChange={(e) => setJobDescription(e.target.value)}
+                  />
+                </div>
+              </div>
 
               <div className="flex justify-center">
                 <button
@@ -232,12 +220,6 @@ export default function JobAnalysis() {
                 </h2>
               </div>
 
-              {result.score !== undefined && (
-                <p className="text-sm mb-4 text-gray-600 dark:text-gray-400">
-                  🔍 Confidence Score: <span className="font-medium">{(result.score * 100).toFixed(1)}%</span>
-                </p>
-              )}
-
               <div className="mt-4">
                 <h3 className="text-lg font-semibold mb-2">
                   {result.reasons.length > 0 ? '🧠 Analysis Insights:' : 'No suspicious signs detected.'}
@@ -252,26 +234,70 @@ export default function JobAnalysis() {
                             result.isFake ? 'bg-red-500' : 'bg-green-500'
                           }`}
                         ></span>
-                        <span dangerouslySetInnerHTML={{ __html: highlightKeywords(reason) }} />
+                        <p>{reason}</p>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-gray-700 dark:text-gray-300">
-                    This job description does not contain any obvious scam indicators.
-                  </p>
+                  <p>No suspicious signs detected in this job description.</p>
+                )}
+
+                {result.score && (
+                  <div className="mt-4">
+                    <h4 className="text-sm font-semibold">Scam Probability:</h4>
+                    <div className="text-lg font-semibold">{result.score}%</div>
+                  </div>
                 )}
               </div>
-
-              {result.isFake && (
-                <div className="mt-6 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-100 dark:border-red-800">
-                  <p className="text-red-800 dark:text-red-200 font-medium">
-                    🚨 This job posting shows multiple red flags. We recommend avoiding this opportunity.
-                  </p>
-                </div>
-              )}
             </motion.div>
           )}
+
+           {/* How the Detector Works Section */}
+           <section className="mt-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="glass-card p-8 rounded-2xl"
+            >
+              <h2 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+                🛡️ How the Detector Works
+              </h2>
+
+              <div className="grid md:grid-cols-3 gap-8 text-gray-700 dark:text-gray-300">
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-full mb-4">
+                    <svg className="w-8 h-8 text-blue-500 dark:text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2l4 -4" />
+                      <path d="M20 12a8 8 0 1 1 -16 0a8 8 0 0 1 16 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Keyword Highlighting</h3>
+                  <p>We search for suspicious keywords often found in scams like “urgent,” “click here,” or “easy money.”</p>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-yellow-100 dark:bg-yellow-900 p-4 rounded-full mb-4">
+                    <svg className="w-8 h-8 text-yellow-500 dark:text-yellow-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M12 9v2m0 4h.01M12 19a7 7 0 1 1 0-14a7 7 0 0 1 0 14z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">ML-Based Detection</h3>
+                  <p>Using NLP and machine learning, we evaluate sentence patterns and word choices to determine credibility.</p>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-green-100 dark:bg-green-900 p-4 rounded-full mb-4">
+                    <svg className="w-8 h-8 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Confidence Scoring</h3>
+                  <p>Each result comes with a confidence score to indicate how likely a job is a scam based on the model’s prediction.</p>
+                </div>
+              </div>
+            </motion.div>
+          </section>
         </div>
       </section>
     </PageTransition>

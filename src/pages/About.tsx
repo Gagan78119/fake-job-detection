@@ -27,7 +27,7 @@ export default function About() {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
             >
-              About Fake Job Detection
+              About Job or Joke
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}

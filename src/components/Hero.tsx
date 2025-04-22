@@ -8,31 +8,10 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
       
-      {/* Adaptive Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-gray-800 z-0 transition-colors duration-300"></div>
+      {/* Adaptive Background Gradient
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-gray-800 z-0 transition-colors duration-300"></div> */}
 
-      {/* AI Cybersecurity Grid & Particles Background */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0 z-0 pointer-events-none"
-      >
-        {/* Floating AI Data Particles */}
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-blue-500 dark:bg-blue-500 opacity-70 w-1 h-24 rounded-full transition-colors duration-300"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: [0, 1, 0], y: [-20, 20, -20] }}
-            transition={{ duration: 3, repeat: Infinity, delay: i * 0.2 }}
-          />
-        ))}
-      </motion.div>
+     
 
       <div className="container mx-auto px-6 relative z-10 py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
