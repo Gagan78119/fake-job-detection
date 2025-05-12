@@ -32,7 +32,7 @@ export default function Index() {
             />
             <FeatureCard 
               title="Website Verification"
-              description="We verify employer websites and contact information against our database of known le// filepath: c:\Users\GAGAN\Desktop\fake job detection\JOB-OR-JOKE\src\pages\Index.tsximate businesses."
+              description="We verify employer websites and contact information against our database of known legitimate businesses."
               icon={Shield}
               delay={0.2}
             />
