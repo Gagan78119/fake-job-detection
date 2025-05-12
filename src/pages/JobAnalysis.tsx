@@ -216,7 +216,7 @@ export default function JobAnalysis() {
                   <CheckCircle className="h-8 w-8 text-green-500 mr-3" />
                 )}
                 <h2 className="text-2xl font-bold">
-                  {result.isFake ? 'Potential Scam Detected!' : 'This Job Appears Le// filepath: c:\Users\GAGAN\Desktop\fake job detection\JOB-OR-JOKE\src\pages\JobAnalysis.tsximate'}
+                  {result.isFake ? 'Potential Scam Detected!' : 'This Job Appears Legitimate'}
                 </h2>
               </div>
 
